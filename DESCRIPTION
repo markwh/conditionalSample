@@ -1,0 +1,11 @@
+Package: conditionalSample
+Type: Package
+Title: Allows samples to be drawn from (generalized) linear models
+Version: 1.0
+Date: 2015-07-25
+Author: Mark Hagemann
+Maintainer: <mark.hagemann@gmail.com>
+Description: Currently contains two functions, the most important of which is condlSample. 
+  Useful either for generating pseudo-random data from a model, or alternatively for 
+  getting conditional quantiles from a model. 
+License: GNU GPL something something...
