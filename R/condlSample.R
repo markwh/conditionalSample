@@ -38,19 +38,20 @@ condlSample.lm <- function(object, newdata, quantile = "random") {
 
   # get moments via predict
   preds = as.data.frame(predict(object = object, newdata = newdata, se.fit = TRUE))
+  preds$var.pred = preds$se.fit ^ 2 + var(residuals(object, type = "response"))
   names(preds)[1] = "fit"
 
   # get distribution parameters via moments
-  args0 = momentsToDistArgs(distr = distr, moments = preds[c("fit", "se.fit")])
+  args0 = momentsToDistArgs(distr = distr, moments = preds[c("fit", "var.pred")])
 
   # sample from distribution
   funname = paste0("q", distr)
   out = do.call(funname, c(list(p = quantile), args0))
   out
 }
-#
+
 # x = rnorm(20)
 # df1 = data.frame(x = x, y = x + rnorm(20))
 # lm1 = lm(y ~ x, df1)
-# condlSample.lm(lm1, data.frame(x = c(3, 7)), q = 0.99)
+# conditionalSample:::condlSample.lm(lm1, data.frame(x = c(3, 7)), q = 0.99)
 # condlSample.lm
