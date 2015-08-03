@@ -2,25 +2,24 @@
 % Please edit documentation in R/condlSample.R
 \name{condlSample}
 \alias{condlSample}
-\title{Generate samples from conditional distribution defined by a (generalized) linear model.}
+\title{Generate samples from conditional distribution.}
 \usage{
-condlSample()
+condlSample(object, ...)
 }
 \arguments{
-\item{object}{a lm object (including glm and gam). If a glm/gam, its family
-must be gaussian, binomial, poisson, or gamma.}
+\item{object}{a model object with a `predict()` method}
 
-\item{newdata}{As in predict.lm, predict.glm, etc. An optional data.frame to use for
-generating conditional distribution parameters. If omitted, the fitted values are used.}
-
-\item{vector}{of quantiles to which the returned values will correspond.
-If the default, "random" is not used, this must be numeric on (0, 1).}
+\item{...}{arguments to be passed to individual methods. These should always include :
+`newdata` - to be passed to `predict()` function
+`quantile` - either 'random' for stochastic sampling from conditional distribution or
+a numeric value on (0, 1) specifying the quantile to return}
 }
 \value{
-Numeric vector containing conditional random sample (if `quantile = "random"`)
+Numeric vector containing conditional random sample (if `quantile = 'random'`)
 or conditional quantiles from condition distribution defined by `object` and `newdata`
+seealso \code{\link{condlSample.lm}}
 }
 \description{
-Generate samples from conditional distribution defined by a (generalized) linear model.
+Generate samples from conditional distribution.
 }
 

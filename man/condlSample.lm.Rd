@@ -13,11 +13,11 @@ must be gaussian, binomial, poisson, or gamma.}
 \item{newdata}{As in predict.lm, predict.glm, etc. An optional data.frame to use for
 generating conditional distribution parameters. If omitted, the fitted values are used.}
 
-\item{vector}{of quantiles to which the returned values will correspond.
-If the default, "random" is not used, this must be numeric on (0, 1).}
+\item{quantile}{vector of quantiles to which the returned values will correspond.
+If the default, 'random' is not used, this must be numeric on (0, 1).}
 }
 \value{
-Numeric vector containing conditional random sample (if `quantile = "random"`)
+Numeric vector containing conditional random sample (if `quantile = 'random'`)
 or conditional quantiles from condition distribution defined by `object` and `newdata`
 }
 \description{
